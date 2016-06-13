@@ -8,6 +8,7 @@ import { HeroService } from './hero.service';
     templateUrl: 'app/hero-detail.component.html'
 })
 export class HeroDetailComponent implements OnInit {
+    
     hero: Hero;
 
     constructor(private heroService: HeroService, private routeParams: RouteParams) {}
