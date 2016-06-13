@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
-export class Hero {
-    id:number;
-    name:string;
-}
+import {Hero} from './hero';
+
 @Component({
     selector: 'my-app',
     template: `
