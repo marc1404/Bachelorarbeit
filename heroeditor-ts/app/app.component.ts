@@ -68,7 +68,7 @@ import { HeroDetailComponent } from './hero-detail.component';
 })
 export class AppComponent {
     title = 'Tour of Heroes';
-    heroes = HEROES;
+    heroes: Hero[];
     selectedHero: Hero;
     onSelect(hero: Hero) { this.selectedHero = hero; }
 }
