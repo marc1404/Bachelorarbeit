@@ -14,6 +14,26 @@ const CommentBox = React.createClass({
       }
     });
   },
+  handleCommentSubmit(comment) {
+    const comments = this.state.data;
+    comment.id = Date.now();
+    const newComments = comments.concat([comment]);
+
+    this.setState({data: newComments});
+
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      type: 'POST',
+      data: comment,
+      success: data => {
+        this.setState({data: data})
+      },
+      error: () => {
+        this.setState({data: comments});
+      }
+    });
+  },
   getInitialState() {
     return {data: []};
   },
@@ -26,7 +46,7 @@ const CommentBox = React.createClass({
       <div class="commentBox">
         <h1>Comments</h1>
         <CommentList data={this.state.data}/>
-        <CommentForm/>
+        <CommentForm onCommentSubmit={this.handleCommentSubmit}/>
       </div>
     );
   }
@@ -51,11 +71,45 @@ const CommentList = React.createClass({
 });
 
 const CommentForm = React.createClass({
+  getInitialState() {
+    return {
+      author: '',
+      text: ''
+    };
+  },
+  handleAuthorChange(event) {
+    this.setState({author: event.target.value});
+  },
+  handleTextChange(event) {
+    this.setState({text: event.target.value});
+  },
+  handleSubmit(event) {
+    event.preventDefault();
+
+    const author = this.state.author.trim();
+    const text = this.state.text.trim();
+
+    if (!author || !text) {
+      return;
+    }
+
+    this.props.onCommentSubmit({
+      author: author,
+      text: text
+    });
+
+    this.setState({
+      author: '',
+      text: ''
+    });
+  },
   render() {
     return (
-      <div className="commentForm">
-        Hello, world! I am a CommentForm.
-      </div>
+      <form className="commentForm" onSubmit={this.handleSubmit}>
+        <input type="text" placeholder="Your name" value={this.state.author} onChange={this.handleAuthorChange}/>
+        <input type="text" placeholder="Say something..." value={this.state.text} onChange={this.handleTextChange}/>
+        <input type="submit" value="Post"/>
+      </form>
     );
   }
 });
