@@ -1,4 +1,24 @@
+let nextId = 0;
+
+class Contact {
+
+    constructor(name, age, email, phone) {
+        this.id = nextId++;
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.phone = phone;
+    }
+
+    initials() {
+        return this.name.split(' ').map(part => {
+            return part.charAt(0);
+        }).join('');
+    }
+
+}
+
 export default [
-    { id: 0, name: 'Marc Vornetran', age: 22, email: 'marc@vornetran.de', phone: '+49 160 0815' },
-    { id: 1, name: 'John Doe', age: 42, email: 'john.doe@gmail.com', phone: '+49 160 42000' }
+    new Contact('Marc Vornetran', 22, 'marc@vornetran.de', '+49 160 0815'),
+    new Contact('John Doe', 42, 'john.doe@gmail.com', '+49 160 42000')
 ];

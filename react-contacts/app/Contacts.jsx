@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {browserHistory} from 'react-router';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 import {List, ListItem} from 'material-ui/List';
 import Avatar from 'material-ui/Avatar';
@@ -9,13 +9,17 @@ export default class Contacts extends React.Component {
 
     render() {
         const listItems = contacts.map(contact => {
-            const link = <Link to={`/contact/${contact.id}`}>{contact.name}</Link>;
-            const avatar = <Avatar>{this.initials(contact.name)}</Avatar>;
+            const avatar = <Avatar>{contact.initials()}</Avatar>;
+            const openContact = () => {
+                browserHistory.push(`/contact/${contact.id}`)
+            };
 
             return (
                 <ListItem key={contact.id}
-                          primaryText={link}
+                          primaryText={contact.name}
                           leftAvatar={avatar}
+                          onTouchStart={openContact}
+                          onClick={openContact}
                 />
             );
         });
@@ -30,12 +34,6 @@ export default class Contacts extends React.Component {
                 </CardText>
             </Card>
         );
-    }
-
-    initials(name) {
-        return name.split(' ').map(part => {
-            return part.charAt(0);
-        }).join('');
     }
 
 }
