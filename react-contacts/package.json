@@ -1,0 +1,16 @@
+{
+  "name": "react-contacts",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marc1404/Bachelorarbeit.git"
+  },
+  "author": "Marc Vornetran",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/marc1404/Bachelorarbeit/issues"
+  },
+  "homepage": "https://github.com/marc1404/Bachelorarbeit#readme"
+}
