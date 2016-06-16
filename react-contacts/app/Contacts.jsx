@@ -6,7 +6,7 @@ import Avatar from 'material-ui/Avatar';
 import contacts from './contacts-mock';
 
 export default class Contacts extends React.Component {
-
+    
     render() {
         const listItems = contacts.map(contact => {
             const avatar = <Avatar>{contact.initials()}</Avatar>;
