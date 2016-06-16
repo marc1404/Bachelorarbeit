@@ -11,12 +11,12 @@ module.exports = {
         loaders: [
             {
                 test: /.jsx?$/,
-                loader: 'babel-loader?cacheDirectory',
+                loader: 'babel-loader',
                 exclude: /node_modules/,
-                presets: [
-                    'es2015',
-                    'react'
-                ]
+                query: {
+                    cacheDirectory: true,
+                    presets: ['es2015', 'react']
+                }
             }
         ]
     }
