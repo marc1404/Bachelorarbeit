@@ -13,9 +13,11 @@ export default class Contact extends React.Component {
     }
 
     render() {
+        const avatar = <Avatar>{this.contact().initials()}</Avatar>;
+
         return (
             <Card>
-                <CardHeader title={this.contact().name} avatar={<Avatar>{this.contact().initials()}</Avatar>}/>
+                <CardHeader title={this.contact().name} avatar={avatar}/>
                 <CardText>
                     <div>Test</div>
                 </CardText>
