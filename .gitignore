@@ -44,3 +44,4 @@ typings
 /heroeditor-ts/app/*.js
 /heroeditor-ts/app/*.js.map
 bundle.js
+bundle.js.map
