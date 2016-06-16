@@ -39,5 +39,8 @@ jspm_packages
 # Custom
 .idea
 typings
-/*/app/*.js
-/*/app/*.js.map
+/quickstart-ts/app/*.js
+/quickstart-ts/app/*.js.map
+/heroeditor-ts/app/*.js
+/heroeditor-ts/app/*.js.map
+bundle.js
