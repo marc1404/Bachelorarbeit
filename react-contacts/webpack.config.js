@@ -19,5 +19,11 @@ module.exports = {
                 }
             }
         ]
+    },
+    devServer: {
+        port: 80,
+        historyApiFallback: {
+            index: 'index.html'
+        }
     }
 };
