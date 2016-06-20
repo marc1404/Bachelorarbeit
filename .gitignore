@@ -45,3 +45,4 @@ typings
 /heroeditor-ts/app/*.js.map
 bundle.js
 bundle.js.map
+bower_components
