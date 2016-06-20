@@ -43,6 +43,8 @@ typings
 /quickstart-ts/app/*.js.map
 /heroeditor-ts/app/*.js
 /heroeditor-ts/app/*.js.map
+/angular-phonecat/app/*.js
+/angular-phonecat/app/*.js.map
 bundle.js
 bundle.js.map
 bower_components
