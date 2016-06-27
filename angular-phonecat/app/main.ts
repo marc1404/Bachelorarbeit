@@ -11,6 +11,7 @@ angular.module('core.phone')
 angular.module('phoneList')
     .directive('phoneList', <angular.IDirectiveFactory> upgradeAdapter.downgradeNg2Component(PhoneListComponent));
 
+upgradeAdapter.upgradeNg1Provider('$routeParams');
 upgradeAdapter.addProvider(HTTP_PROVIDERS);
 upgradeAdapter.addProvider(Phone);
 
