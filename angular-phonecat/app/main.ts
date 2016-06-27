@@ -4,9 +4,10 @@ import {Phone} from './core/phone/phone.service';
 
 const upgradeAdapter = new UpgradeAdapter();
 
-upgradeAdapter.bootstrap(document.documentElement, ['phonecatApp']);
+angular.module('core.phone')
+    .factory('phone', upgradeAdapter.downgradeNg2Provider(Phone));
+
 upgradeAdapter.addProvider(HTTP_PROVIDERS);
 upgradeAdapter.addProvider(Phone);
 
-angular.module('core.phone')
-    .factory('phone', upgradeAdapter.downgradeNg2Provider(Phone));
+upgradeAdapter.bootstrap(document.documentElement, ['phonecatApp']);
