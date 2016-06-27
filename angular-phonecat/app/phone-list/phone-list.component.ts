@@ -7,7 +7,7 @@ import {Phone, PhoneData} from '../core/phone/phone.service';
     selector: 'phone-list',
     templateUrl: 'phone-list/phone-list.template.html'
 })
-class PhoneListComponent {
+export class PhoneListComponent {
 
     phones:PhoneData[];
     query:string;
