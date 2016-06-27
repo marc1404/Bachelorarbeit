@@ -27,6 +27,6 @@ class PhoneDetailController {
 
 // Register `phoneDetail` component, along with its associated controller and template
 angular.module('phoneDetail').component('phoneDetail', {
-    templateUrl: '',
+    templateUrl: 'phone-detail/phone-detail.template.html',
     controller: PhoneDetailController
 });
