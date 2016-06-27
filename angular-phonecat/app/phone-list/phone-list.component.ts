@@ -1,28 +1,24 @@
 'use strict';
 
+import {Component} from '@angular/core';
 import {Phone, PhoneData} from '../core/phone/phone.service';
 
-class PhoneListController {
+@Component({
+    selector: 'phone-list',
+    templateUrl: 'phone-list/phone-list.template.html'
+})
+class PhoneListComponent {
 
-  phones: PhoneData[];
-  orderProp: string;
+    phones:PhoneData[];
+    query:string;
+    orderProp:string;
 
-  static $inject = ['phone'];
+    constructor(phone:Phone) {
+        phone.query().subscribe(phones => {
+            this.phones = phones;
+        });
 
-  constructor(phone: Phone) {
-    phone.query().subscribe(phones => {
-      this.phones = phones;
-    });
-
-    this.orderProp = 'age';
-  }
+        this.orderProp = 'age';
+    }
 
 }
-
-// Register `phoneList` component, along with its associated controller and template
-angular.
-  module('phoneList').
-  component('phoneList', {
-    templateUrl: 'phone-list/phone-list.template.html',
-    controller: PhoneListController
-  });
