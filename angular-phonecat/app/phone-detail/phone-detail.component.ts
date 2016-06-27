@@ -1,15 +1,18 @@
 'use strict';
 
+import {Component, Inject} from '@angular/core';
 import {Phone, PhoneData} from '../core/phone/phone.service';
 
+@Component({
+    selector: 'phone-detail',
+    templateUrl: 'phone-detail/phone-detail.template.html'
+})
 class PhoneDetailController {
 
     phone:PhoneData;
     mainImageUrl:string;
 
-    static $inject = ['$routeParams', 'phone'];
-
-    constructor($routeParams:angular.route.IRouteParamsService, phone:Phone) {
+    constructor(@Inject('$routeParams') $routeParams:angular.route.IRouteParamsService, phone:Phone) {
         let phoneId = $routeParams['phoneId'];
 
         phone.get(phoneId).subscribe(data => {
@@ -24,9 +27,3 @@ class PhoneDetailController {
     }
 
 }
-
-// Register `phoneDetail` component, along with its associated controller and template
-angular.module('phoneDetail').component('phoneDetail', {
-    templateUrl: 'phone-detail/phone-detail.template.html',
-    controller: PhoneDetailController
-});
