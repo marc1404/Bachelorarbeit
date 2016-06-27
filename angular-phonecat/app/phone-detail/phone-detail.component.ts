@@ -2,10 +2,12 @@
 
 import {Component, Inject} from '@angular/core';
 import {Phone, PhoneData} from '../core/phone/phone.service';
+import {CheckmarkPipe} from '../core/checkmark/checkmark.pipe';
 
 @Component({
     selector: 'phone-detail',
-    templateUrl: 'phone-detail/phone-detail.template.html'
+    templateUrl: 'phone-detail/phone-detail.template.html',
+    pipes: [CheckmarkPipe]
 })
 export class PhoneDetailComponent {
 
