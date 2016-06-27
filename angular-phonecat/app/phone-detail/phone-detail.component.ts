@@ -7,7 +7,7 @@ import {Phone, PhoneData} from '../core/phone/phone.service';
     selector: 'phone-detail',
     templateUrl: 'phone-detail/phone-detail.template.html'
 })
-class PhoneDetailController {
+export class PhoneDetailController {
 
     phone:PhoneData;
     mainImageUrl:string;
