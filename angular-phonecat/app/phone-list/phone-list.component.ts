@@ -2,10 +2,12 @@
 
 import {Component} from '@angular/core';
 import {Phone, PhoneData} from '../core/phone/phone.service';
+import {ROUTER_DIRECTIVES} from '@angular/router';
 
 @Component({
     selector: 'phone-list',
-    templateUrl: 'phone-list/phone-list.template.html'
+    templateUrl: 'phone-list/phone-list.template.html',
+    directives: [ROUTER_DIRECTIVES]
 })
 export class PhoneListComponent {
 

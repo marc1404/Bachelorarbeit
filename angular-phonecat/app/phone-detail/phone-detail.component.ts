@@ -1,8 +1,9 @@
 'use strict';
 
-import {Component, Inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {Phone, PhoneData} from '../core/phone/phone.service';
 import {CheckmarkPipe} from '../core/checkmark/checkmark.pipe';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'phone-detail',
@@ -14,8 +15,9 @@ export class PhoneDetailComponent {
     phone:PhoneData;
     mainImageUrl:string;
 
-    constructor(@Inject('$routeParams') $routeParams:angular.route.IRouteParamsService, phone:Phone) {
-        let phoneId = $routeParams['phoneId'];
+    constructor(phone:Phone, route:ActivatedRoute) {
+        //noinspection TypeScriptUnresolvedVariable
+        const phoneId = route.snapshot.params.phoneId;
 
         phone.get(phoneId).subscribe(data => {
             this.phone = data;
